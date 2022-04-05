@@ -1,0 +1,23 @@
+{
+  "name": "task_manager_on_nodejs_and_angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luaroncrew/task_manager_on_nodejs_and_angular.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luaroncrew/task_manager_on_nodejs_and_angular/issues"
+  },
+  "homepage": "https://github.com/luaroncrew/task_manager_on_nodejs_and_angular#readme",
+  "dependencies": {
+    "bulma": "^0.9.3"
+  }
+}
