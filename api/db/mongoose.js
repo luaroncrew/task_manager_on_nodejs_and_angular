@@ -13,9 +13,9 @@ mongoose.connect('mongodb://localhost:27017/TaskManager', {useNewUrlParser: true
 });
 
 // to prevent warnings
-
-mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
+//
+// mongoose.set('useCreateIndex', true);
+// mongoose.set('useFindAndModify', false);
 
 module.exports = {
     mongoose
