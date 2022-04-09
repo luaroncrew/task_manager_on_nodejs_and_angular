@@ -2,7 +2,7 @@
 this is just development description
 
 
-# lesson 2
+# lesson 2 basic ui creation
 
 as I use windows while coding this project:
 
@@ -35,3 +35,37 @@ as I use windows while coding this project:
 * modify contents in task-view.component.html
  
 * creating styles for modified contents in task-view.component.scss
+
+
+# Lesson 3 basic api
+
+## first steps 
+* going to api/ to then do `npm init` to init a package manager here
+
+* install Express js by `npm install express --save`
+
+* create a file app.js
+
+* changes in appjs from commit "api first setup"
+
+* installing nodemon globally `npm install -g nodemon`
+
+* start server by `nodemon app.js`
+
+* testing application using Postman
+
+## writing placeholders for future functions (commit placeholders)
+
+## db implementation (mongoose connection commit)
+* need to install mongodb client from https://www.mongodb.com/try/download/community
+  otherwise connections will be rejected
+
+* installing Mongoose `npm install mongoose --save`
+
+* connection file modifications mongoose.js
+
+* creating moodels and exporting them
+
+## manipulating objects in view funcions (all in app.js) (commit db manipulation from views)
+
+* we need to use a middleware for it so `npm install body-parser --save`
