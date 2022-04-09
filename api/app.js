@@ -2,6 +2,12 @@ const express = require('express');
 const {response} = require("express");
 const app = express();
 const port = 3000;
+
+
+// loading mongoose models
+
+const { List, Task } = require('db/models');
+
 /* ROUTE HANDLERS */
 
 
@@ -14,6 +20,9 @@ const port = 3000;
 *  */
 app.get('/lists/', (req, res) => {
    // we want to return the array of all the lists in the database
+    List.find([]).then((lists) => {
+        res.send(lists);
+    })
 });
 
 
