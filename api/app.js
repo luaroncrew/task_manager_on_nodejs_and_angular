@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 
 /* LIST ROUTES */
 
-
 /*
 * GET lists/
 * purpose: get all lists
@@ -60,7 +59,6 @@ app.patch('/lists/:id', (req, res) =>{
         $set: req.body }).then(() => {
             res.sendStatus(200)
     });
-    console.log('we are here');
 });
 
 
@@ -75,7 +73,73 @@ app.delete('/lists/:id', (req, res) => {
         $set: req.body }).then((deletedListDoc) => {
             res.send(deletedListDoc)
         });
+});
+
+
+/* TASK ROUTES */
+
+/*
+* GET lists/:listId/tasks
+* purpose: get all the tasks from a specific list
+*  */
+app.get('/lists/:listId/tasks', (req, res) => {
+    // we want to return all tasks that belong to a specific list
+    let listId = req.params.listId
+    Task.find({
+        _listId: listId
+    }).then((tasks) => {
+        res.send(tasks)
+    });
 })
+
+
+/*
+* POST lists/:listId/tasks
+* purpose: get all the tasks from a specific list
+*  */
+app.post('/lists/:listId/tasks', (req, res) => {
+    // we want to create a new task associated to a specific list
+    let listId = req.params.listId;
+    let title = req.body.title;
+    let newTask = new Task({
+        title: title,
+        _listId: listId
+    });
+    newTask.save().then((taskDoc) => {
+        res.send(taskDoc)
+    });
+})
+
+
+/*
+* PATCH lists/:listId/tasks/:taskId
+* purpose: edit a specific task of a specific list
+*  */
+app.patch('/lists/:listId/tasks/:taskId', (req, res) => {
+    let taskId = req.params.taskId;
+    Task.findOneAndUpdate({
+        _id: taskId,
+        },
+        { $set: req.body}).then(() =>{
+        res.sendStatus(200)
+        });
+})
+
+
+/*
+* DELETE lists/:listId/tasks/:taskId
+* purpose: delete a specific task
+*  */
+app.delete('/lists/:listId/tasks/:taskId', (req, res) =>{
+    let taskId = req.params.taskId;
+    Task.findOneAndDelete({
+        _id: taskId
+    }, {
+        $set: req.body
+    }).then((deletedTaskDoc) =>{
+        res.send(deletedTaskDoc)
+    });
+});
 
 
 
