@@ -69,3 +69,15 @@ as I use windows while coding this project:
 ## manipulating objects in view funcions (all in app.js) (commit db manipulation from views)
 
 * we need to use a middleware for it so `npm install body-parser --save`
+
+
+# lesson 4 connecting frontend
+
+## first service
+
+* creating a new angular service `ng generate service Task` (from frontend directory)
+  this will be a service responsible for modifying our task data
+
+* modify this service's file (src/app/task.service.ts)
+
+* creating another service `ng generate service WebRequest`
