@@ -142,6 +142,19 @@ app.delete('/lists/:listId/tasks/:taskId', (req, res) =>{
 });
 
 
+/*
+* GET lists/:listId/tasks/:taskId
+* purpose: get a specified task document by id
+*  */
+app.get('/lists/:listId/tasks/:taskId', (req, res) => {
+    let taskId = req.params.taskId;
+    Task.findOne({
+        _id: taskId
+    }).then((taskDoc) => {
+        res.send(taskDoc)
+    });
+})
+
 
 app.listen(port, () => {
     console.log(`app is listening on port ${port}`);
